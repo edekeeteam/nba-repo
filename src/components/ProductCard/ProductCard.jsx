@@ -2,7 +2,7 @@ import React from "react";
 import "./ProductCard.css";
 
 function ProductCard({ name, price, img }) {
-  const type = "category";
+  // const type = "category";
 
   return (
     <div

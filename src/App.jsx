@@ -1,12 +1,13 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // import logo from './logo.svg';
 import "./App.css";
 import Lottie from "react-lottie";
 import animationData from "./tag.json";
 import { useState, useEffect } from "react";
 import Tooltip from "./components/Tooltip/Tooltip";
-import newLabels from "./lebron_500.json";
+// import newLabels from "./lebron_500.json";
 import PlayerCard from "./components/PlayerCard/PlayerCard";
-import { tab } from "@testing-library/user-event/dist/tab";
+// import { tab } from "@testing-library/user-event/dist/tab";
 import ProductCard from "./components/ProductCard/ProductCard";
 import BidCard from "./components/BidCard/BidCard";
 
@@ -22,7 +23,7 @@ function App() {
 
   // const [xPos, setXPos] = useState(0);
   // const [yPos, setYPos] = useState(0);
-  const [num, setNum] = useState(0);
+  // const [num, setNum] = useState(0);
   const [showSidebar, setShowSidebar] = useState(false);
 
   const [stillRunning, setStillRunning] = useState(false);
@@ -30,12 +31,12 @@ function App() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [yValue, setYValue] = useState(0);
   const [xValue, setXValue] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
+  // const [isVisible, setIsVisible] = useState(false);
   const [shouldAnimate, setShouldAnimate] = useState(false);
 
   const [tabContent, setTabContent] = useState(0);
 
-  const lebron_label = newLabels.result.labels;
+  // const lebron_label = newLabels.result.labels;
 
   const labels = [
     {
@@ -2042,9 +2043,9 @@ function App() {
         // console.log(currentTime);
         // console.log(lebron_label);
         const allTags = labels.find((label) => {
-          if (currentTime === 250) {
-            sampleVideo.currentTime = 500;
-          }
+          // if (currentTime === 250) {
+          //   sampleVideo.currentTime = 500;
+          // }
           if (label.milliseconds === currentTime)
             if (
               (currentTime > 21000 && currentTime < 32000) ||
@@ -2072,7 +2073,7 @@ function App() {
           //     1080) *
           //     100
           // );
-          setIsVisible(true);
+          // setIsVisible(true);
           setStillRunning(true);
           setXValue(allTags?.x * 100);
           setYValue(allTags?.y * 100);
@@ -2100,9 +2101,8 @@ function App() {
         } else {
           // setYValue(0);
           // setXValue(0);
-          console.log("this is the else", currentTime);
-
-          setIsVisible(false);
+          // console.log("this is the else", currentTime);
+          // setIsVisible(false);
         }
 
         // console.log(allTags?.y, allTags?.x);
@@ -2114,7 +2114,7 @@ function App() {
     if (!isVideoPlaying) {
       console.log("stopped playing");
     }
-  }, [isVideoPlaying, yValue]);
+  }, [isVideoPlaying, yValue, labels]);
 
   // if (isVideoPlaying) {
   //   const videoInterval = setInterval(() => {
@@ -2126,26 +2126,26 @@ function App() {
   //   console.log("stopped playing");
   // }
 
-  useEffect(() => {
-    const numInterval = setInterval(() => {
-      setNum((num) => {
-        if (num === labels.length - 1) {
-          return 0;
-        }
-        return num + 1;
-      });
-    }, 1000);
+  // useEffect(() => {
+  //   const numInterval = setInterval(() => {
+  //     setNum((num) => {
+  //       if (num === labels.length - 1) {
+  //         return 0;
+  //       }
+  //       return num + 1;
+  //     });
+  //   }, 1000);
 
-    // setTimeout(() => {
-    //   // console.log("this ran");
-    //   clearInterval(numInterval);
-    //   setStillRunning(false);
-    // }, 6000);
+  //   // setTimeout(() => {
+  //   //   // console.log("this ran");
+  //   //   clearInterval(numInterval);
+  //   //   setStillRunning(false);
+  //   // }, 6000);
 
-    return () => {
-      clearInterval(numInterval);
-    };
-  }, [labels.length]);
+  //   return () => {
+  //     clearInterval(numInterval);
+  //   };
+  // }, [labels.length]);
 
   // console.log(num);
 
@@ -2203,14 +2203,14 @@ function App() {
       <div className="wrapper">
         <div className="imageContainer">
           <video
-            src="lebron_james.mp4"
+            src="https://edekee-backend-main.s3.us-east-2.amazonaws.com/videos/lebron_james.mp4"
             className="sampleImage"
             id="sampleVideo"
             alt=""
             autoPlay
-            // controls
+            controls
             muted
-            loop
+            // loop
             onEnded={() => {
               console.log("video ended");
             }}

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import "./Tooltip.css";
 
@@ -35,7 +36,7 @@ function Tooltip({ children, title, TooltipState, setShowTooltip }) {
         setIndex(0);
       }, 1500);
     }
-  }, [index, data]);
+  }, [index, data, setShowTooltip]);
 
   useEffect(() => {
     let slider = setInterval(() => {
